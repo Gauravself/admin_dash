@@ -11,6 +11,7 @@ import { Box } from "@mui/material";
 
 const Team = React.lazy(() => import("./scenes/team/Team"));
 const Contacts = React.lazy(() => import("./scenes/contacts/Contacts"));
+const Invoices = React.lazy(() => import("./scenes/invoices/Invoices"));
 // import Invoices from "./scenes/dashboard/invoices";
 // import Contacts from "./scenes/dashboard/contacts";
 // import Bar from "./scenes/dashboard/bar";
@@ -71,7 +72,7 @@ function App() {
               />
               {/* Contacts */}
               <Route
-                path="/contact"
+                path="/contacts"
                 element={
                   <React.Suspense
                     fallback={
@@ -88,6 +89,27 @@ function App() {
                     }
                   >
                     <Contacts />
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/invoices"
+                element={
+                  <React.Suspense
+                    fallback={
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <CircularProgress
+                          variant="indeterminate"
+                          sx={{ color: colors.greenAccent[300] }}
+                        />
+                      </Box>
+                    }
+                  >
+                    <Invoices />
                   </React.Suspense>
                 }
               />
