@@ -8,33 +8,18 @@ import Dashboard from "./scenes/dashboard/Dashboard";
 import CircularProgress from "@mui/material/CircularProgress";
 import { tokens } from "./theme";
 import { Box } from "@mui/material";
+import ProfileForm from "./scenes/profileForm/ProfileForm";
+import Faq from "./scenes/faq/FAQ";
+// import Bar from "./components/BarChart";
 
 const Team = React.lazy(() => import("./scenes/team/Team"));
 const Contacts = React.lazy(() => import("./scenes/contacts/Contacts"));
 const Invoices = React.lazy(() => import("./scenes/invoices/Invoices"));
-// import Invoices from "./scenes/dashboard/invoices";
-// import Contacts from "./scenes/dashboard/contacts";
-// import Bar from "./scenes/dashboard/bar";
-// import Form from "./scenes/dashboard/form";
-// import Line from "./scenes/dashboard/line";
-// import Pie from "./scenes/dashboard/pie";
-// import FAQ from "./scenes/dashboard/faq";
-// import Geography from "./scenes/dashboard/geography";
-// import Calendar from "./scenes/dashboard/calender";
-
-// const routes = createBrowserRouter([
-//   // { path: "/", element: <Dashboard /> },
-//   // { path: "/team", element: <Team /> },
-//   // { path: "/contacts", element: <Contacts /> },
-//   // { path: "/invoices", element: <Invoices /> },
-//   // { path: "/bar", element: <Bar /> },
-//   // { path: "/form", element: <Form /> },
-//   // { path: "/line", element: <Line /> },
-//   // { path: "/pie", element: <Pie /> },
-//   // { path: "/faq", element: <FAQ /> },
-//   // { path: "/geography", element: <Geography /> },
-//   // { path: "/calender", element: <Calendar /> },
-// ]);
+const Calendar = React.lazy(() => import("./scenes/calendar/Calendar"));
+const Bar = React.lazy(() => import("./scenes/bar"));
+const Pie = React.lazy(() => import("./scenes/pie"));
+const Line = React.lazy(() => import("./scenes/line"));
+const Geo = React.lazy(() => import("./scenes/geo"));
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -110,6 +95,113 @@ function App() {
                     }
                   >
                     <Invoices />
+                  </React.Suspense>
+                }
+              />
+              <Route path="/form" element={<ProfileForm />} />
+              <Route
+                path="/calendar"
+                element={
+                  <React.Suspense
+                    fallback={
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <CircularProgress
+                          variant="indeterminate"
+                          sx={{ color: colors.greenAccent[300] }}
+                        />
+                      </Box>
+                    }
+                  >
+                    <Calendar />
+                  </React.Suspense>
+                }
+              />
+              <Route path="/faq" element={<Faq />} />
+              <Route
+                path="/bar"
+                element={
+                  <React.Suspense
+                    fallback={
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <CircularProgress
+                          variant="indeterminate"
+                          sx={{ color: colors.greenAccent[300] }}
+                        />
+                      </Box>
+                    }
+                  >
+                    <Bar />
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/pie"
+                element={
+                  <React.Suspense
+                    fallback={
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <CircularProgress
+                          variant="indeterminate"
+                          sx={{ color: colors.greenAccent[300] }}
+                        />
+                      </Box>
+                    }
+                  >
+                    <Pie />
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/line"
+                element={
+                  <React.Suspense
+                    fallback={
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <CircularProgress
+                          variant="indeterminate"
+                          sx={{ color: colors.greenAccent[300] }}
+                        />
+                      </Box>
+                    }
+                  >
+                    <Line />
+                  </React.Suspense>
+                }
+              />
+              <Route
+                path="/geo"
+                element={
+                  <React.Suspense
+                    fallback={
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
+                        <CircularProgress
+                          variant="indeterminate"
+                          sx={{ color: colors.greenAccent[300] }}
+                        />
+                      </Box>
+                    }
+                  >
+                    <Geo />
                   </React.Suspense>
                 }
               />
